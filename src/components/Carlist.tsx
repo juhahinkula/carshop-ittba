@@ -5,6 +5,7 @@ import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { fetchCars, deleteCar } from "../carapi";
 import Button from "@mui/material/Button";
 import AddCar from "./AddCar";
+import EditCar from "./EditCar";
 
 function Carlist() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -27,6 +28,12 @@ function Carlist() {
         >
           Delete
         </Button> 
+    },
+    {
+      field: "_links.car.href",
+      headerName: "",
+      renderCell: (params: GridRenderCellParams) =>
+        <EditCar getCars={getCars} carRow={params.row} /> 
     }
   ]
 
