@@ -14,3 +14,5 @@ export type Car = {
     }
   }
 }
+
+export type CarForm = Omit<Car, "_links">;

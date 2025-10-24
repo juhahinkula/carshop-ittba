@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { fetchCars, deleteCar } from "../carapi";
 import Button from "@mui/material/Button";
+import AddCar from "./AddCar";
 
 function Carlist() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -49,6 +50,7 @@ function Carlist() {
 
   return(
     <>
+      <AddCar getCars={getCars} />
       <div style={{ width: '90%', height: 500 }}>
         <DataGrid 
           autoPageSize
