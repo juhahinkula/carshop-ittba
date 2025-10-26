@@ -37,7 +37,7 @@ export const updateCar = (url: string, car: CarForm) => {
 }
 
 export const saveCar = (car: CarForm) => {
-  return fetch("https://car-rest-service-carshop.2.rahtiapp.fi/cars", {
+  return fetch(import.meta.env.VITE_API_URL + "/cars", {
     method: "POST",
     headers: { "content-type" : "application/json"  },
     body: JSON.stringify(car)
