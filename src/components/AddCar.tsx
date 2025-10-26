@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import type { CarForm } from '../types';
+import { saveCar } from '../carapi';
 
 type AddCarProps = {
   getCars: () => void;
@@ -31,17 +32,7 @@ export default function AddCar({ getCars }: AddCarProps) {
   };
 
   const handleSave = () => {
-    fetch("https://car-rest-service-carshop.2.rahtiapp.fi/cars", {
-      method: "POST",
-      headers: { "content-type" : "application/json"  },
-      body: JSON.stringify(car)
-    })
-    .then(response => {
-      if (!response.ok)
-        throw new Error("Error when adding a new car");
-
-      return response.json();
-    })
+    saveCar(car)
     .then(() => { 
       getCars();
       handleClose(); 

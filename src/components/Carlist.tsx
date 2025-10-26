@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { fetchCars, deleteCar } from "../carapi";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack"
 import AddCar from "./AddCar";
 import EditCar from "./EditCar";
 
@@ -57,8 +58,10 @@ function Carlist() {
 
   return(
     <>
-      <AddCar getCars={getCars} />
-      <div style={{ width: '90%', height: 500 }}>
+      <Stack mt={1} mb={1} justifyContent="center" alignItems="center" >
+        <AddCar getCars={getCars} />
+      </Stack>
+      <div style={{ width: '90%', height: 500, margin: "auto" }}>
         <DataGrid 
           autoPageSize
           rows={cars}
